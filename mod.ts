@@ -1,4 +1,4 @@
-import { TextValue } from "https://cdn.jsdelivr.net/gh/shah/value-manager@v1.0.1/mod.ts";
+import { TextValue } from "https://denopkg.com/shah/value-manager@v1.0.3/mod.ts";
 
 export type NamespaceIdentifier = TextValue;
 export type QualifiedNamespace = TextValue;
