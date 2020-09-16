@@ -1,4 +1,4 @@
-import { TextValue } from "https://denopkg.com/shah/value-manager@v1.0.4/mod.ts";
+import type { TextValue } from "https://denopkg.com/shah/value-manager@v1.0.4/mod.ts";
 
 export type NamespaceIdentifier = TextValue;
 export type QualifiedNamespace = TextValue;
@@ -10,8 +10,8 @@ export interface Namespace {
   readonly qualifiedName: QualifiedNamespace;
 }
 
-export function isNamespace(c: any): c is Namespace {
-  return "isNamespace" in c;
+export function isNamespace(c: unknown): c is Namespace {
+  return c && typeof c === "object" && "isNamespace" in c;
 }
 
 export class DefaultNamespace implements Namespace {
