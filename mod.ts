@@ -1,4 +1,5 @@
-import type { TextValue } from "https://denopkg.com/shah/value-manager@v1.0.9/mod.ts";
+import * as safety from "https://denopkg.com/shah/ts-safety@v0.3.1/mod.ts";
+import type { TextValue } from "https://denopkg.com/shah/value-manager@v1.0.10/mod.ts";
 
 export type NamespaceIdentifier = TextValue;
 export type QualifiedNamespace = TextValue;
@@ -10,9 +11,7 @@ export interface Namespace {
   readonly qualifiedName: QualifiedNamespace;
 }
 
-export function isNamespace(c: unknown): c is Namespace {
-  return c && typeof c === "object" && "isNamespace" in c;
-}
+export const isNamespace = safety.typeGuard<Namespace>("isNamespace");
 
 export class DefaultNamespace implements Namespace {
   readonly isNamespace: true = true;
